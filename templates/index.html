@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Data Collector App</title>
+  <head>
+    <link href="../static/main.css" rel="stylesheet">
+  </head>
+    <body>
+      <div class="container">
+        <h1>订单号记录</h1>
+        <h3>请填写以下信息<h3>
+        <div class="email"> </div>
+        <form action="{{url_for('success')}}" method="POST"> 
+          <input title="我们不会泄露您的个人信息" placeholder="填写您的邮箱" type="email" name="email_name" required> <br>
+          <input title="请填写一种货物" placeholder="填写货物代号和规格" type="number" min="100", max="300" name="product_name" required> <br>
+           <input title="请填写货物的数量" placeholder="填写货品的数量" type="number" min="0", max="5000" name="product_quantity" required> <br>
+          <button type="submit"> 提交 </button>
+        </form>
+      </div>
+    </body>
+</html>
