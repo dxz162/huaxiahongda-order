@@ -54,9 +54,9 @@ def success():
 
 
 
-@app.route("/download")
-def download():
-    return send_file("uploaded"+file.filename, attachment_filename="yourfile.csv", as_attachment=True)
+#@app.route("/download")
+#def download():
+    #return send_file("uploaded"+file.filename, attachment_filename="yourfile.csv", as_attachment=True)
 
 
 if __name__ == '__main__':
