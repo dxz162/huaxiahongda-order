@@ -7,7 +7,7 @@ from sqlalchemy.sql import func
 
 app=Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:sm00th1y!@localhost/order_collector'
-app.config['SQLALCHEMY_DATABASE_URI']=' postgres://lgigskweroooiu:1e48d154ed70f7ebfc32962330bcf96940fbccfe931fb8697870bc52ba0d82b7@ec2-52-204-20-42.compute-1.amazonaws.com:5432/da9uvl2gj8vicn?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://lgigskweroooiu:1e48d154ed70f7ebfc32962330bcf96940fbccfe931fb8697870bc52ba0d82b7@ec2-52-204-20-42.compute-1.amazonaws.com:5432/da9uvl2gj8vicn?sslmode=require'
 db=SQLAlchemy(app)
 
 class Data(db.Model):
