@@ -35,10 +35,10 @@ def success():
          quant=request.form["product_quantity"]
          send_email(email, product, quant)
          print(email, product, quant)
-       # if db.session.query(Data).filter(Data.email_ == email).count()== 0:
-         data=Data(email,product,quant)
-         db.session.add(data)
-         db.session.commit()
+       
+         #data=Data(email,product,quant)
+         #db.session.add(data)
+         #db.session.commit()
          return render_template("success.html")
 
 
