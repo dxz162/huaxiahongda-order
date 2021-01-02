@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, send_file
 from flask_sqlalchemy import SQLAlchemy
-from send_email import send_email
+#from send_email import send_email
 from sqlalchemy.sql import func
 #from werkzeug import secure_filename
 
 
 app=Flask(__name__)
-#engine = create_engine('postgresql://scott:tiger@localhost:5432/mydatabase')
 #app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:sm00th1y!@localhost/order_collector'
-app.config['SQLALCHEMY_DATABASE_URI']='postgres://kfdqilbhbkibkr:abe29e535db1e9638e241b0b13d235ecb226b1589dce171caca9e3b0d1dd4028@ec2-35-168-77-215.compute-1.amazonaws.com:5432/d61lqlabdov8e0?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI']=' postgres://lgigskweroooiu:1e48d154ed70f7ebfc32962330bcf96940fbccfe931fb8697870bc52ba0d82b7@ec2-52-204-20-42.compute-1.amazonaws.com:5432/da9uvl2gj8vicn?sslmode=require'
 db=SQLAlchemy(app)
 
 class Data(db.Model):
@@ -61,4 +60,4 @@ def success():
 
 if __name__ == '__main__':
     app.debug=True
-    app.run(port=5005)
+    app.run(port=5000)
