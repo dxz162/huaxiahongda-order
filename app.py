@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from flask_sqlalchemy import SQLAlchemy
-# from send_email import send_email
+from send_email import send_email
 from sqlalchemy.sql import func
 #from werkzeug import secure_filename
 
@@ -33,7 +33,7 @@ def success():
          email=request.form["email_name"]
          product=request.form["product_name"]
          quant=request.form["product_quantity"]
-         # send_email(email, product, quant)
+         send_email(email, product, quant)
          print(email, product, quant)
        
          #data=Data(email,product,quant)
