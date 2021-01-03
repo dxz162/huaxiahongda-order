@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 # from send_email import send_email
 from sqlalchemy.sql import func
 #from werkzeug import secure_filename
+from email.mime.text import MIMEText
+import smtplib
+
 
 
 app=Flask(__name__)
@@ -23,18 +26,44 @@ class Data(db.Model):
         self.quant_= quant_
 
 
+class send_email():
+    def __init__(self, email, product, quant):
+        from_email="davidzhengdy@gmail.com"
+        from_password="maomi2019"
+        to_email=email
+
+        subject="Product data"
+        message="您好,我是华夏矿产科技的桃小姐，您订购的产品规格为 <strong>%s</strong>. <br> 采购数量为 <strong>%s</strong>. <br> 感谢您的购买!" % (product, quant)
+
+        msg=MIMEText(message, 'html')
+        msg['Subject']=subject
+        msg['To']=to_email
+        msg['From']=from_email
+
+        gmail=smtplib.SMTP('smtp.gmail.com',587)
+        gmail.ehlo()
+        gmail.starttls()
+        gmail.login(from_email, from_password)
+        gmail.send_message(msg)
+
+
+
 @app.route("/")   
 def index():
     return render_template("index.html")
 
 @app.route("/success", methods=['POST'])
+
+
+
+
 def success():
     #global file
     if request.method=='POST':
          email=request.form["email_name"]
          product=request.form["product_name"]
          quant=request.form["product_quantity"]
-         # send_email(email, product, quant)
+         send_email(email, product, quant)
          # print(email, product, quant)
        
          data=Data(email,product,quant)
@@ -57,6 +86,9 @@ def success():
 #@app.route("/download")
 #def download():
     #return send_file("uploaded"+file.filename, attachment_filename="yourfile.csv", as_attachment=True)
+
+
+
 
 
 if __name__ == '__main__':
