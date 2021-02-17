@@ -4,7 +4,7 @@ import smtplib
 
 def send_email(email, product, quant):
     from_email="davidzhengdy@gmail.com"
-    from_password="maomi2019"
+    from_password="Sm00th1y!"
     to_email=email
 
     subject="Product data"
